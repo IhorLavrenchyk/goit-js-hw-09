@@ -3,7 +3,7 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
-let selectDate = 0;
+let selectDate = null;
 const todayDate = new Date();
 console.log('hi');
 
