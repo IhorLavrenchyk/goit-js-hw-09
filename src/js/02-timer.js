@@ -9,7 +9,6 @@ let selectDate = null;
 const todayDate = new Date();
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
-const todayDay = new Date();
 
 const timer = setInterval(countDownTime, 1000);
 
@@ -33,6 +32,7 @@ const options = {
 flatpickr(datapicker, options);
 
 function countDownTime() {
+  const todayDay = new Date();
   const diff = selectDate - todayDay;
   console.log(diff);
 }
