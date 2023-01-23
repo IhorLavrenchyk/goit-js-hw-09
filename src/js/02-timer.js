@@ -34,6 +34,7 @@ flatpickr(datapicker, options);
 
 function countDownTime() {
   const diff = selectDate - todayDay;
+  console.log(diff);
 }
 
 // function convertMs(ms) {
