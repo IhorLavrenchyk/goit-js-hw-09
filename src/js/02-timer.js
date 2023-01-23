@@ -3,14 +3,14 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 let selectDate = null;
 const todayDate = new Date();
-console.log('hi');
-
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
 const todayDay = new Date();
-console.log(todayDay);
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -18,16 +18,15 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] <= todayDay) {
-      window.alert('Please choose a date in the future');
-      btnStart.disabled = false;
+      Notify.failure('Please choose a date in the future');
+      btnStart.disabled = true;
     } else {
       selectDate = selectedDates[0];
-      btnStart.disabled = true;
+      Notify.success('Just push the button "START"');
+      btnStart.disabled = false;
     }
   },
 };
-
-console.log(selectDate);
 
 flatpickr(datapicker, options);
 
