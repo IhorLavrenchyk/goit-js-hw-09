@@ -4,7 +4,7 @@ const btnStop = document.querySelector('[data-stop]');
 let timer = 0;
 
 function getRandomHexColor() {
-  return #${Math.floor(Math.random() * 16777215).toString(16)};
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 console.log(getRandomHexColor());
 
@@ -23,6 +23,6 @@ function newColor() {
 }
 
 function stopTimer() {
-    clearInterval(timer);
-    btnStart.disabled = false;
+  clearInterval(timer);
+  btnStart.disabled = false;
 }
