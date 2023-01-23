@@ -16,7 +16,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectDates <= todayDate) {
+    if (selectDates[0] <= todayDate) {
       window.alert('Please choose a date in the future');
       btnStart.disabled = false;
     } else {
@@ -25,12 +25,11 @@ const options = {
     }
   },
 };
-flatpickr(datapicker, options);
-
 console.log('hi');
 
 console.log(selectDate);
 console.log(todayDate);
+flatpickr(datapicker, options);
 
 // function convertMs(ms) {
 //   // Number of milliseconds per unit of time
