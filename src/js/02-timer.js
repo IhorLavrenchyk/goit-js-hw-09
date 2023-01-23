@@ -11,10 +11,12 @@ const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
 const todayDay = new Date();
 
+const timer = setInterval(countDownTime, 1000);
+
 const options = {
   enableTime: true,
   time_24hr: true,
-  defaultDate: new Date(),
+  defaultDate: new Date().getTime(),
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] <= todayDay) {
@@ -29,6 +31,10 @@ const options = {
 };
 
 flatpickr(datapicker, options);
+
+function countDownTime() {
+  const diff = selectDate - todayDay;
+}
 
 // function convertMs(ms) {
 //   // Number of milliseconds per unit of time
