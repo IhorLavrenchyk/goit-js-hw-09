@@ -5,6 +5,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 let selectDate = 0;
 const todayDate = new Date();
+console.log('hi');
 
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
@@ -25,7 +26,6 @@ const options = {
     }
   },
 };
-console.log('hi');
 
 console.log(selectDate);
 
