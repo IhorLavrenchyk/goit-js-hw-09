@@ -9,14 +9,14 @@ const todayDate = new Date();
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
 const todayDay = new Date();
-
+console.log(todayDay);
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectDates[0] <= todayDate) {
+    if (selectDates[0] <= todayDay) {
       window.alert('Please choose a date in the future');
       btnStart.disabled = false;
     } else {
@@ -28,7 +28,7 @@ const options = {
 console.log('hi');
 
 console.log(selectDate);
-console.log(todayDate);
+
 flatpickr(datapicker, options);
 
 // function convertMs(ms) {
