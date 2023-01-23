@@ -8,6 +8,7 @@ const todayDate = new Date();
 
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
+const todayDay = new Date();
 
 const options = {
   enableTime: true,
@@ -25,6 +26,12 @@ const options = {
   },
 };
 flatpickr(datapicker, options);
+
+console.log('hi');
+
+console.log(selectDate);
+console.log(todayDate);
+
 // function convertMs(ms) {
 //   // Number of milliseconds per unit of time
 //   const second = 1000;
