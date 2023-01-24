@@ -18,7 +18,7 @@ const options = {
   defaultDate: new Date().getTime(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] <= todayDay) {
+    if (selectedDates[0] <= this.defaultDate) {
       Notify.failure('Please choose a date in the future');
       btnStart.disabled = true;
     } else {
@@ -31,27 +31,33 @@ const options = {
 
 flatpickr(datapicker, options);
 
+btnStart.addEventListener('click', clickOnStart);
+
+function clickOnStart() {
+  timer;
+}
+
 function countDownTime() {
   const todayDay = new Date();
   const diff = selectDate - todayDay;
   console.log(diff);
 }
 
-// function convertMs(ms) {
-//   // Number of milliseconds per unit of time
-//   const second = 1000;
-//   const minute = second * 60;
-//   const hour = minute * 60;
-//   const day = hour * 24;
+function convertMs(ms) {
+  // Number of milliseconds per unit of time
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
 
-//   // Remaining days
-//   const days = Math.floor(ms / day);
-//   // Remaining hours
-//   const hours = Math.floor((ms % day) / hour);
-//   // Remaining minutes
-//   const minutes = Math.floor(((ms % day) % hour) / minute);
-//   // Remaining seconds
-//   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+  // Remaining days
+  const days = Math.floor(ms / day);
+  // Remaining hours
+  const hours = Math.floor((ms % day) / hour);
+  // Remaining minutes
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  // Remaining seconds
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
-//   return { days, hours, minutes, seconds };
-// }
+  return { days, hours, minutes, seconds };
+}
