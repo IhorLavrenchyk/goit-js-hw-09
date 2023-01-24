@@ -10,8 +10,6 @@ const todayDate = new Date();
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
 
-const timer = setInterval(countDownTime, 1000);
-
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -34,13 +32,12 @@ flatpickr(datapicker, options);
 btnStart.addEventListener('click', clickOnStart);
 
 function clickOnStart() {
-  timer;
-}
-
-function countDownTime() {
-  const todayDay = new Date();
-  const diff = selectDate - todayDay;
-  console.log(diff);
+  const timer = setInterval(countDownTime, 1000);
+  function countDownTime() {
+    const todayDay = new Date();
+    const diff = selectDate - todayDay;
+    console.log(diff);
+  }
 }
 
 function convertMs(ms) {
