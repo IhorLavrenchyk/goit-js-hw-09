@@ -21,7 +21,7 @@ const options = {
   defaultDate: new Date().getTime(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] <= this.defaultDate) {
+    if (selectedDates[0] <= todayDate) {
       Notify.failure('Please choose a date in the future');
       btnStart.disabled = true;
     } else {
@@ -41,7 +41,6 @@ function clickOnStart() {
   function countDownTime() {
     const todayDay = new Date();
     const diff = selectDate - todayDay;
-    console.log(diff);
   }
 }
 
@@ -63,3 +62,13 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
+}
+
+let timeObject = convertMs(diff);
+dd.textContent = addLeadingZero(timeObject.days);
+hd.textContent = addLeadingZero(timeObject.hours);
+md.textContent = addLeadingZero(timeObject.minutes);
+sd.textContent = addLeadingZero(timeObject.seconds);
