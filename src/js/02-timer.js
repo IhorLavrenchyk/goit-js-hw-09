@@ -10,6 +10,11 @@ const todayDate = new Date();
 const datapicker = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
 
+const dd = document.querySelector('[data-days]');
+const hd = document.querySelector('[data-hours]');
+const md = document.querySelector('[data-minutes]');
+const sd = document.querySelector('[data-seconds]');
+
 const options = {
   enableTime: true,
   time_24hr: true,
