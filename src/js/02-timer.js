@@ -36,19 +36,15 @@ flatpickr(datapicker, options);
 
 // btnStart.addEventListener('click', clickOnStart);
 
-let diff = null;
-
 const timer = setInterval(countDownTime, 1000);
 function countDownTime() {
   const todayDay = new Date();
   diff = selectDate - todayDay;
   console.log(diff);
-  return diff;
 }
-let diff2 = diff;
-console.log(diff2);
+console.log(countDownTime());
 
-function convertMs(ms) {
+function convertMs() {
   // Number of milliseconds per unit of time
   const second = 1000;
   const minute = second * 60;
@@ -71,7 +67,7 @@ function addLeadingZero(value) {
   return value.toString().padStart(2, '0');
 }
 
-let timeObject = convertMs(diff);
+let timeObject = convertMs(ms);
 dd.textContent = addLeadingZero(timeObject.days);
 hd.textContent = addLeadingZero(timeObject.hours);
 md.textContent = addLeadingZero(timeObject.minutes);
