@@ -75,8 +75,8 @@ hd.textContent = addLeadingZero(timeObject.hours);
 md.textContent = addLeadingZero(timeObject.minutes);
 sd.textContent = addLeadingZero(timeObject.seconds);
 
-function stopTimer() {
-  if (diff === 0) {
-    timer = clearInterval();
-  }
-}
+// function stopTimer() {
+//   if (diff === 0) {
+//     timer = clearInterval();
+//   }
+// }
