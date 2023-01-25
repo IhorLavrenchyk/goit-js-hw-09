@@ -15,6 +15,8 @@ const hd = document.querySelector('[data-hours]');
 const md = document.querySelector('[data-minutes]');
 const sd = document.querySelector('[data-seconds]');
 
+btnStart.disabled = true;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -23,7 +25,6 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] <= todayDate) {
       Notify.failure('Please choose a date in the future');
-      btnStart.disabled = true;
     } else {
       selectDate = selectedDates[0];
       Notify.success('Just push the button "START"');
@@ -34,16 +35,29 @@ const options = {
 
 flatpickr(datapicker, options);
 
-// btnStart.addEventListener('click', clickOnStart);
-
-const timer = setInterval(countDownTime, 1000);
-function countDownTime() {
-  const todayDay = new Date();
-  const diff = selectDate - todayDay;
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
 }
-console.log(countDownTime());
 
-function convertMs() {
+btnStart.addEventListener('click', clickOnStart);
+function clickOnStart() {
+  const timer = setInterval(countDownTime, 1000);
+  function countDownTime() {
+    const todayDay = new Date();
+    const diff = selectDate - todayDay;
+    if (diff < 999) {
+      clearInterval(timer);
+      Notify.success('The END"');
+    }
+    let timeObject = convertMs(diff);
+    dd.textContent = addLeadingZero(timeObject.days);
+    hd.textContent = addLeadingZero(timeObject.hours);
+    md.textContent = addLeadingZero(timeObject.minutes);
+    sd.textContent = addLeadingZero(timeObject.seconds);
+  }
+}
+
+function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
   const minute = second * 60;
@@ -61,19 +75,3 @@ function convertMs() {
 
   return { days, hours, minutes, seconds };
 }
-
-function addLeadingZero(value) {
-  return value.toString().padStart(2, '0');
-}
-
-let timeObject = convertMs(diff);
-dd.textContent = addLeadingZero(timeObject.days);
-hd.textContent = addLeadingZero(timeObject.hours);
-md.textContent = addLeadingZero(timeObject.minutes);
-sd.textContent = addLeadingZero(timeObject.seconds);
-
-// function stopTimer() {
-//   if (diff === 0) {
-//     timer = clearInterval();
-//   }
-// }
