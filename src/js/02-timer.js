@@ -46,6 +46,8 @@ function clickOnStart() {
   return diff;
 }
 
+console.log(diff);
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
