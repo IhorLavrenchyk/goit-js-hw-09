@@ -36,7 +36,7 @@ flatpickr(datapicker, options);
 
 // btnStart.addEventListener('click', clickOnStart);
 
-const diff = null;
+let diff = null;
 
 const timer = setInterval(countDownTime, 1000);
 function countDownTime() {
