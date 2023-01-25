@@ -36,11 +36,11 @@ flatpickr(datapicker, options);
 
 // btnStart.addEventListener('click', clickOnStart);
 
-let diff = 0;
 const timer = setInterval(countDownTime, 1000);
 function countDownTime() {
   const todayDay = new Date();
-  diff = selectDate - todayDay;
+  const diff = selectDate - todayDay;
+  return diff;
 }
 
 console.log(diff);
