@@ -45,8 +45,8 @@ function countDownTime() {
   console.log(diff);
   return diff;
 }
-
-console.log(diff);
+let diff2 = diff;
+console.log(diff2);
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
