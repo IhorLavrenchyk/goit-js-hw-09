@@ -42,6 +42,7 @@ const timer = setInterval(countDownTime, 1000);
 function countDownTime() {
   const todayDay = new Date();
   diff = selectDate - todayDay;
+  console.log(diff);
 }
 
 console.log(diff);
