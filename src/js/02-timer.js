@@ -41,7 +41,9 @@ function clickOnStart() {
   function countDownTime() {
     const todayDay = new Date();
     const diff = selectDate - todayDay;
+    return diff;
   }
+  return diff;
 }
 
 function convertMs(ms) {
