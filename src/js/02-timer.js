@@ -34,16 +34,13 @@ const options = {
 
 flatpickr(datapicker, options);
 
-btnStart.addEventListener('click', clickOnStart);
+// btnStart.addEventListener('click', clickOnStart);
 
 let diff = 0;
-
-function clickOnStart() {
-  const timer = setInterval(countDownTime, 1000);
-  function countDownTime() {
-    const todayDay = new Date();
-    diff = selectDate - todayDay;
-  }
+const timer = setInterval(countDownTime, 1000);
+function countDownTime() {
+  const todayDay = new Date();
+  diff = selectDate - todayDay;
 }
 
 console.log(diff);
