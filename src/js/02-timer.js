@@ -67,7 +67,7 @@ function addLeadingZero(value) {
   return value.toString().padStart(2, '0');
 }
 
-let timeObject = convertMs(ms);
+let timeObject = convertMs(diff);
 dd.textContent = addLeadingZero(timeObject.days);
 hd.textContent = addLeadingZero(timeObject.hours);
 md.textContent = addLeadingZero(timeObject.minutes);
