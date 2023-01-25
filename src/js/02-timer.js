@@ -43,6 +43,7 @@ function countDownTime() {
   const todayDay = new Date();
   diff = selectDate - todayDay;
   console.log(diff);
+  return diff;
 }
 
 console.log(diff);
